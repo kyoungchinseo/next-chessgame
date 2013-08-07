@@ -37,7 +37,7 @@ public abstract class Piece {
 	Piece(Color color, Type type, Position position) {
 		this.color = color;
 		this.type = type;
-		this.position = position;
+		this.setPosition(position);
 	}
 	
 	public char getSymbol() {
@@ -68,11 +68,11 @@ public abstract class Piece {
 	}
 
 	public Piece leave() {
-		return new Empty(Color.NOCOLOR, this.position);
+		return new Empty(Color.NOCOLOR, this.getPosition());
 	}
 	
 	public Piece move(Position target) {
-		this.position = target;
+		this.setPosition(target);
 		return this;
 	}
 	
@@ -84,7 +84,7 @@ public abstract class Piece {
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result
-				+ ((position == null) ? 0 : position.hashCode());
+				+ ((getPosition() == null) ? 0 : getPosition().hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -100,10 +100,10 @@ public abstract class Piece {
 		Piece other = (Piece) obj;
 		if (color != other.color)
 			return false;
-		if (position == null) {
-			if (other.position != null)
+		if (getPosition() == null) {
+			if (other.getPosition() != null)
 				return false;
-		} else if (!position.equals(other.position))
+		} else if (!getPosition().equals(other.getPosition()))
 			return false;
 		if (type != other.type)
 			return false;
@@ -113,6 +113,14 @@ public abstract class Piece {
 	@Override
 	public String toString() {
 		return "Piece [color=" + color + ", type=" + type + ", position="
-				+ position + "]";
+				+ getPosition() + "]";
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
 	}
 }

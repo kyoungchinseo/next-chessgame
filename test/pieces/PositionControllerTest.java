@@ -23,5 +23,7 @@ public class PositionControllerTest extends TestCase {
 		PositionController controller = new PositionController(position);
 		List<Position> positions = controller.findsDiagonalPositionAll();
 		assertEquals(11, positions.size());
+		
+		System.out.println(positions);
 	}
 }

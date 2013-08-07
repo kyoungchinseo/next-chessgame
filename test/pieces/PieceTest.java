@@ -32,4 +32,14 @@ public class PieceTest extends TestCase {
 		Piece empty = new Empty(Color.NOCOLOR, source);
 		assertEquals(0, empty.getPossibleMoves().size());
 	}
+	
+	public void testRookPossibleMove() throws Exception {
+		Position source = new Position("c4");
+		Piece rook = new Rook(Color.WHITE,source);
+		assertEquals(14, rook.getPossibleMoves().size());
+		System.out.println(rook.getPossibleMoves());
+	}
+	
+	
+	
 }

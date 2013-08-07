@@ -10,7 +10,7 @@ public class Empty extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		List<Position> list = new ArrayList<Position>(); //new List<Position>();
+		List<Position> list = new ArrayList<Position>();
 		return list;
 	}
 }
