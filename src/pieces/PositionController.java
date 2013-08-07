@@ -10,28 +10,9 @@ public class PositionController {
 		this.position = position;
 	}
 
-	public List<Position> findsLinearPositionAll() {
-		Direction[] linears = Direction.linearDirection();
+	public List<Position> findPositionAll(Direction[] directions) {
 		List<Position> positions = new ArrayList<Position>();
-		for (Direction direction : linears) {
-			positions.addAll(position.findsPosition(direction));
-		}
-		return positions;
-	}
-
-	public List<Position> findsDiagonalPositionAll() {
-		Direction[] diagonals = Direction.diagonalDirection();
-		List<Position> positions = new ArrayList<Position>();
-		for (Direction direction : diagonals) {
-			positions.addAll(position.findsPosition(direction));
-		}
-		return positions;
-	}
-	
-	public List<Position> findsAllPositionAll() {
-		Direction[] all = Direction.allDirection();
-		List<Position> positions = new ArrayList<Position>();
-		for (Direction direction : all) {
+		for (Direction direction : directions) {
 			positions.addAll(position.findsPosition(direction));
 		}
 		return positions;

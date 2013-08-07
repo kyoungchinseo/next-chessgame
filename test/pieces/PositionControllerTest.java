@@ -11,7 +11,7 @@ public class PositionControllerTest extends TestCase {
 		Position position = new Position(startX, startY);
 
 		PositionController controller = new PositionController(position);
-		List<Position> positions = controller.findsLinearPositionAll();
+		List<Position> positions = controller.findPositionAll(Direction.linearDirection());
 		assertEquals(14, positions.size());
 	}
 
@@ -21,7 +21,7 @@ public class PositionControllerTest extends TestCase {
 		Position position = new Position(startX, startY);
 
 		PositionController controller = new PositionController(position);
-		List<Position> positions = controller.findsDiagonalPositionAll();
+		List<Position> positions = controller.findPositionAll(Direction.diagonalDirection());
 		assertEquals(11, positions.size());
 		
 		System.out.println(positions);
