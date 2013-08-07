@@ -52,7 +52,7 @@ public class PositionTest extends TestCase {
 	}
 
 	private void verifyPositions(Position position, Direction direction, int expectedSize) {
-		assertEquals(expectedSize, position.findsPosition(direction).size());
+		assertEquals(expectedSize, position.findPosition(direction).size());
 	}
 
 	public void testIsValid() throws Exception {

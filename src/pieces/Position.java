@@ -1,6 +1,7 @@
 package pieces;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import chess.Board;
@@ -40,7 +41,7 @@ public class Position {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
 	}
 
-	List<Position> findsPosition(Direction direction) {
+	List<Position> findPosition(Direction direction) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(direction);
 		while(currentPosition.isValid()) {
@@ -49,6 +50,17 @@ public class Position {
 		}
 		return positions;
 	}
+	
+
+	List <Position> findPositionOneStep(Direction direction) {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		if (currentPosition.isValid()) {
+			positions.add(currentPosition);
+		}
+		return positions;
+	}
+
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {

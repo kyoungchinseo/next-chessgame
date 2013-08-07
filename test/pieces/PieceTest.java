@@ -54,6 +54,11 @@ public class PieceTest extends TestCase {
 		System.out.println(queen.getPossibleMoves());
 	}
 	
-	
+	public void testKingPossibleMove() throws Exception {
+		Position source = new Position("c1");
+		Piece king = new King(Color.WHITE,source);
+		assertEquals(5, king.getPossibleMoves().size());
+		System.out.println(king.getPossibleMoves());
+	}
 	
 }
