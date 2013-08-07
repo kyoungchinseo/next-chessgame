@@ -9,6 +9,8 @@ public class Knight extends Piece {
 
 	@Override
 	List<Position> getPossibleMoves() {
-		return null;
+		PositionController controller = new PositionController(super.getPosition());
+		List<Position> position = controller.findPosition(Direction.knightDirection());
+		return position;
 	}
 }

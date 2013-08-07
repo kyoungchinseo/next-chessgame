@@ -61,4 +61,12 @@ public class PieceTest extends TestCase {
 		System.out.println(king.getPossibleMoves());
 	}
 	
+	public void testKnightPossibleMove() throws Exception {
+		Position source = new Position("c4");
+		Piece knight = new Knight(Color.WHITE,source);
+		assertEquals(8, knight.getPossibleMoves().size());
+		System.out.println(knight.getPossibleMoves());
+	}
+	
+	
 }
