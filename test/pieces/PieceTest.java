@@ -60,14 +60,7 @@ public class PieceTest extends TestCase {
 		assertEquals(5, king.getPossibleMoves().size());
 		System.out.println(king.getPossibleMoves());
 	}
-	
-	public void testKnightPossibleMove() throws Exception {
-		Position source = new Position("c4");
-		Piece knight = new Knight(Color.WHITE,source);
-		assertEquals(8, knight.getPossibleMoves().size());
-		System.out.println(knight.getPossibleMoves());
-	}
-	
+		
 	public void testPawnPossibleMove() throws Exception {
 		Position source = new Position("c4");
 		Piece pawn1 = new Pawn(Color.BLACK, source);
@@ -96,5 +89,12 @@ public class PieceTest extends TestCase {
 		pawn = new Pawn(Color.WHITE, new Position("c2"));
 		assertEquals(2,pawn.getPossibleMoves().size());
 		System.out.println(pawn.getPossibleMoves());
+	}
+	
+	public void testKnightPossibleMove() throws Exception {
+		Position source = new Position("c4");
+		Piece knight = new Knight(Color.WHITE,source);
+		assertEquals(8, knight.getPossibleMoves().size());
+		System.out.println(knight.getPossibleMoves());
 	}
 }	
