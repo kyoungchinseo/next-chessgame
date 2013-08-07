@@ -16,7 +16,9 @@ public enum Direction {
 	WESTWESTNORTH(-2, 1),
 	WESTWESTSOUTH(-2,-1),
 	EASTEASTNORTH( 2, 1),
-	EASTEASTSOUTH( 2,-1);
+	EASTEASTSOUTH( 2,-1),
+	NORTHNORTH( 0, 2),
+	SOUTHSOUTH( 0,-2);
 
 	private int xDegree;
 	private int yDegree;
@@ -50,4 +52,5 @@ public enum Direction {
 		return new Direction[] {NORTHNORTHWEST,NORTHNORTHEAST,SOUTHSOUTHWEST,SOUTHSOUTHEAST,
 								WESTWESTNORTH,WESTWESTSOUTH,EASTEASTNORTH,EASTEASTSOUTH};
 	}
+	
 }

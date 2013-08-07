@@ -11,11 +11,19 @@ public class Pawn extends Piece {
 	@Override
 	List<Position> getPossibleMoves() {
 		PositionController controller = new PositionController(super.getPosition());
-		Direction [] direction = {Direction.NORTH};
+		Direction [] direction = null;
 		if (super.isWhite()) {
-			direction[0] = Direction.NORTH;
+			if (super.getPosition().getY() == 1) {
+				direction = new Direction[] {Direction.NORTH, Direction.NORTHNORTH};
+			} else {
+				direction = new Direction[] {Direction.NORTH};
+			}
 		} else if (super.isBlack()) {
-			direction[0] = Direction.SOUTH;
+			if (super.getPosition().getY() == 6) {
+				direction = new Direction[] {Direction.SOUTH, Direction.SOUTHSOUTH};
+			} else {
+				direction = new Direction[] {Direction.SOUTH};
+			}
 		}
 		List<Position> position = controller.findPosition(direction);
 		return position;
