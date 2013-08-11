@@ -47,6 +47,10 @@ public abstract class Piece {
 		return type.getSymbol();
 	}
 	
+	public Type getType() {
+		return type;
+	}
+	
     boolean isWhite() {
         if (Color.WHITE == color) {
             return true;

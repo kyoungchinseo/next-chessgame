@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pieces.Piece;
+import pieces.Piece.Type;
 import pieces.Position;
 
 public class Board {
@@ -58,13 +59,15 @@ public class Board {
 
 	void movePiece(Position source, Position target) {
 		Piece targetPiece = findPiece(source);
-		Piece sourcePiece = targetPiece.leave();
-		
-		Rank sourceRank = ranks.get(source.getY());
-		sourceRank.move(sourcePiece, source);
-		
-		Rank targetRank = ranks.get(target.getY());
-		targetRank.move(targetPiece, target);
+		if (targetPiece.getType() != Type.EMPTY) {
+			Piece sourcePiece = targetPiece.leave();
+			
+			Rank sourceRank = ranks.get(source.getY());
+			sourceRank.move(sourcePiece, source);
+			
+			Rank targetRank = ranks.get(target.getY());
+			targetRank.move(targetPiece, target);	
+		}
 	}
 	
 	String generateRank(int rankIndex) {
