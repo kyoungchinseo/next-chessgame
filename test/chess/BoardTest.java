@@ -73,4 +73,12 @@ public class BoardTest extends TestCase {
 		assertEquals(new Empty(Color.NOCOLOR, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testValidMove() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Position target = new Position("a0");
+		board.movePiece(source,target);
+		System.out.println(board.generateBoard());
+	}
 }
