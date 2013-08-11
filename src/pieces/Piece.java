@@ -2,6 +2,8 @@ package pieces;
 
 import java.util.List;
 
+import pieces.Piece.Color;
+
 
 public abstract class Piece {
 	public enum Color {
@@ -67,7 +69,7 @@ public abstract class Piece {
         return false;
     }
     
-	boolean matchColor(Color color) {
+	public boolean matchColor(Color color) {
 		return this.color == color ? true : false;
 	}
 
@@ -126,5 +128,9 @@ public abstract class Piece {
 
 	public void setPosition(Position position) {
 		this.position = position;
+	}
+
+	public Color getColor() {
+		return color;
 	}
 }

@@ -81,4 +81,13 @@ public class BoardTest extends TestCase {
 		board.movePiece(source,target);
 		System.out.println(board.generateBoard());
 	}
+	
+	public void testCheckAllyMove() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Position target = new Position("b2");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
+	}
+	
 }

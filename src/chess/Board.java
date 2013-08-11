@@ -65,7 +65,15 @@ public class Board {
 		if (source.isValid() == false || target.isValid() == false) {
 			return;
 		}
-		Piece sourcePiece = targetPiece.leave();
+		
+		Piece sourcePiece = findPiece(target);
+		if (sourcePiece.matchColor(targetPiece.getColor()) == true) {
+			return;
+		}
+		
+		sourcePiece = targetPiece.leave();
+		
+		
 		
 		Rank sourceRank = ranks.get(source.getY());
 		sourceRank.move(sourcePiece, source);
