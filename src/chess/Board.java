@@ -65,13 +65,47 @@ public class Board {
 		if (source.isValid() == false || target.isValid() == false) {
 			return;
 		}
-		
 		Piece sourcePiece = findPiece(target);
 		if (sourcePiece.matchColor(targetPiece.getColor()) == true) {
 			return;
 		}
 		
-		List<Position> positions = targetPiece.getPossibleMoves();
+		List<Position> positions = findPiece(source).getPossibleMoves();
+		boolean includePosition = false;
+		for(Position position : positions) {
+			if (position.getY() == target.getY()) {
+				if (position.getX() == target.getX()) {
+					includePosition = true;
+				}
+			}
+		}
+		if (includePosition == false) {
+			return;
+		}
+		
+		
+		sourcePiece =  targetPiece.leave();
+		
+		Rank sourceRank = ranks.get(source.getY());
+		sourceRank.move(sourcePiece, source);
+		
+		Rank targetRank = ranks.get(target.getY());
+		targetRank.move(targetPiece, target);	
+	}
+	
+	boolean isValidMovement(Position source, Position target) {
+		Piece targetPiece = findPiece(source);
+		if (targetPiece.getType() == Type.EMPTY) {
+			return false;
+		}
+		if (source.isValid() == false || target.isValid() == false) {
+			return false;
+		}
+		Piece sourcePiece = findPiece(target);
+		if (sourcePiece.matchColor(targetPiece.getColor()) == true) {
+			return false;
+		}
+		List<Position> positions = findPiece(target).getPossibleMoves();
 		boolean includePosition = false;
 		for(Position position : positions) {
 			if (position.getY() == target.getY()) {
@@ -82,16 +116,10 @@ public class Board {
 		}
 		
 		if (includePosition == false) {
-			return;
+			return false;
 		}
-			
-		sourcePiece = targetPiece.leave();
 		
-		Rank sourceRank = ranks.get(source.getY());
-		sourceRank.move(sourcePiece, source);
-		
-		Rank targetRank = ranks.get(target.getY());
-		targetRank.move(targetPiece, target);	
+		return true;
 	}
 	
 	String generateRank(int rankIndex) {

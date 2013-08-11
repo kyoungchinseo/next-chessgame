@@ -2,7 +2,6 @@ package pieces;
 
 import java.util.List;
 
-import pieces.Piece.Color;
 
 
 public abstract class Piece {
@@ -84,6 +83,19 @@ public abstract class Piece {
 	
 	public abstract List<Position> getPossibleMoves();
 	
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -122,15 +134,5 @@ public abstract class Piece {
 				+ getPosition() + "]";
 	}
 
-	public Position getPosition() {
-		return position;
-	}
 
-	public void setPosition(Position position) {
-		this.position = position;
-	}
-
-	public Color getColor() {
-		return color;
-	}
 }

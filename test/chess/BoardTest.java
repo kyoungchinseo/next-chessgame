@@ -59,8 +59,8 @@ public class BoardTest extends TestCase {
 		
 		Position target = new Position("a3");
 		board.movePiece(source, target);
-		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
+		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		System.out.println(board.generateBoard());
 	}
 	
