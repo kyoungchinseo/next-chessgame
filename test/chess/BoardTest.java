@@ -90,4 +90,20 @@ public class BoardTest extends TestCase {
 		System.out.println(board.generateBoard());
 	}
 	
+	public void testPossibleMove() throws Exception {
+		board.initialize();
+		Position source= new Position("a2");
+		Position target= new Position("a3");
+		board.movePiece(source,target);
+		assertEquals(new Pawn(Color.WHITE,target), board.findPiece(target));
+		System.out.println(board.generateBoard());
+	
+		source = new Position("b2");
+		target = new Position("c3");
+		board.movePiece(source, target);
+		assertEquals(new Empty(Color.NOCOLOR,target), board.findPiece(target));
+		System.out.println(board.generateBoard());
+		
+	}
+	
 }

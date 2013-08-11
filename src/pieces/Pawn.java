@@ -9,7 +9,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	List<Position> getPossibleMoves() {
+	public List<Position> getPossibleMoves() {
 		PositionController controller = new PositionController(super.getPosition());
 		Direction [] direction = null;
 		if (super.isWhite()) {

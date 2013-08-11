@@ -71,9 +71,21 @@ public class Board {
 			return;
 		}
 		
+		List<Position> positions = targetPiece.getPossibleMoves();
+		boolean includePosition = false;
+		for(Position position : positions) {
+			if (position.getY() == target.getY()) {
+				if (position.getX() == target.getX()) {
+					includePosition = true;
+				}
+			}
+		}
+		
+		if (includePosition == false) {
+			return;
+		}
+			
 		sourcePiece = targetPiece.leave();
-		
-		
 		
 		Rank sourceRank = ranks.get(source.getY());
 		sourceRank.move(sourcePiece, source);
